@@ -1,4 +1,3 @@
-.target/
+wto.lib.iml
 .idea
-WTOlib.iml
-test.cnf
+/target

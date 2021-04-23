@@ -40,7 +40,7 @@ public class App {
             if(auth.getStatus().equals(Status.SUCCESS)){
 
                 TankStatisticRequest tankStatisticRequest = new TankStatisticRequest.Builder()
-                        .setClientId(1)
+                        .setClientId(auth.getUserId())
                         .build();
 
                 TankStatisticResponse tankStatisticResponse = wtOlib.getTankStatisticService().getStatistic(tankStatisticRequest);
@@ -49,11 +49,22 @@ public class App {
                     System.out.println(statistic);
                 }
 
+                ClientProfileRequest clientProfileRequest = new ClientProfileRequest.Builder()
+                        .setUserId(auth.getUserId())
+                        .build();
+
+                ClientProfileResponse clientProfileResponse = wtOlib.getClientProfileService().getProfile(clientProfileRequest);
+                System.out.println(clientProfileResponse);
+                ClientProfileResponse.Statistic statistic = clientProfileResponse.getStatistic();
+                System.out.println(statistic);
+
             }
 
         } catch (AuthServiceException e) {
             e.printStackTrace();
         } catch (TankStatisticsException e) {
+            e.printStackTrace();
+        } catch (ClientProfileException e) {
             e.printStackTrace();
         }
 

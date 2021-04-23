@@ -3,6 +3,7 @@ package wto.lib;
 import okhttp3.OkHttpClient;
 import okhttp3.internal.JavaNetCookieJar;
 import wto.lib.service.AuthService;
+import wto.lib.service.ClientProfileService;
 import wto.lib.service.TankStatisticService;
 
 import java.net.CookieManager;
@@ -12,8 +13,8 @@ public class WTOlib {
 
     private final OkHttpClient client;
     private final AuthService authService;
-
     private final TankStatisticService tankStatisticService;
+    private final ClientProfileService clientProfileService;
 
     public WTOlib(){
 
@@ -24,8 +25,8 @@ public class WTOlib {
                 .build();
 
         authService = new AuthService(client);
-
         tankStatisticService = new TankStatisticService(client);
+        clientProfileService = new ClientProfileService(client);
 
     }
 
@@ -35,6 +36,10 @@ public class WTOlib {
 
     public TankStatisticService getTankStatisticService() {
         return tankStatisticService;
+    }
+
+    public ClientProfileService getClientProfileService() {
+        return clientProfileService;
     }
 
 

@@ -6,7 +6,7 @@ public abstract class Servise {
 
     OkHttpClient httpClient;
 
-    protected Servise(OkHttpClient okHttpClient){
+    public Servise(OkHttpClient okHttpClient){
 
         this.httpClient = okHttpClient;
 

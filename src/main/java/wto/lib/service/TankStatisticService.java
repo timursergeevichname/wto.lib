@@ -2,26 +2,22 @@ package wto.lib.service;
 
 import okhttp3.*;
 import wto.lib.Config;
-import wto.lib.entity.Statistics;
 import wto.lib.entity.TankStatisticRequest;
 import wto.lib.entity.TankStatisticResponse;
 import wto.lib.entity.TankStatisticsException;
 import wto.lib.parser.JAXBParser;
 
-import javax.xml.bind.JAXBException;
-import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 
-public class TankStatisticService {
+public class TankStatisticService extends Servise{
 
-    private OkHttpClient httpClient;
-    private JAXBParser<TankStatisticRequest> requestJAXBParser;
-    private JAXBParser<TankStatisticResponse> responseJAXBParser;
+    private final JAXBParser<TankStatisticRequest> requestJAXBParser;
+    private final JAXBParser<TankStatisticResponse> responseJAXBParser;
 
 
     public TankStatisticService(OkHttpClient okHttpClient){
-        httpClient = okHttpClient;
+        super(okHttpClient);
         requestJAXBParser = new JAXBParser<>();
         responseJAXBParser = new JAXBParser<>();
     }

@@ -13,6 +13,11 @@ public final class AuthRequest {
     @XmlAttribute
     private String password;
 
+    @XmlAttribute
+    private int version;
+
+    private AuthRequest(){}
+
     @Override
     public String toString() {
         return "AuthRequest{" +
@@ -23,13 +28,7 @@ public final class AuthRequest {
                 '}';
     }
 
-    @XmlAttribute
-    private int version;
-
-    private AuthRequest(){}
-
     public final static class Builder{
-
 
         AuthRequest authRequest = new AuthRequest();
 
@@ -57,10 +56,7 @@ public final class AuthRequest {
             return authRequest;
         }
 
-
-
     }
-
 
 }
 

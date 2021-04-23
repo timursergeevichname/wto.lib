@@ -10,15 +10,14 @@ import wto.lib.parser.JAXBParser;
 import java.io.StringReader;
 import java.io.StringWriter;
 
-public class AuthService {
+public class AuthService extends Servise{
 
-    private OkHttpClient httpClient;
-    private JAXBParser<AuthRequest> requestJAXBParser;
-    private JAXBParser<AuthResponse> responseJAXBParser;
+    private final JAXBParser<AuthRequest> requestJAXBParser;
+    private final JAXBParser<AuthResponse> responseJAXBParser;
 
 
     public AuthService(OkHttpClient okHttpClient){
-        httpClient = okHttpClient;
+        super(okHttpClient);
         requestJAXBParser = new JAXBParser<>();
         responseJAXBParser = new JAXBParser<>();
     }

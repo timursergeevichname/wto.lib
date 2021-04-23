@@ -124,7 +124,7 @@
           <configuration>
             <archive>
               <manifest>
-                <mainClass>wto.lib.App</mainClass>
+                <mainClass>wto.lib.StatisticApp</mainClass>
               </manifest>
             </archive>
             <descriptorRefs>

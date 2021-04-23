@@ -39,13 +39,26 @@ public class Statistics {
     @XmlAttribute
     private int damageCount;
 
-
     @XmlAttribute
     private int deathCount;
 
-
     @XmlAttribute
     private int killCount;
+
+    @XmlAttribute
+    private int experienceCount;
+
+    @XmlAttribute
+    private int hitCount;
+
+    @XmlAttribute
+    private int shotCount;
+
+    @XmlAttribute
+    private int winCount;
+
+    @XmlAttribute
+    private int gamesCount;
 
 
     public int getCrrp() {
@@ -62,30 +75,6 @@ public class Statistics {
 
     public int getShotCount() {
         return shotCount;
-    }
-
-    @Override
-    public String toString() {
-        return "Statistics{" +
-                "tankId=" + tankId +
-                ", runDistance=" + runDistance +
-                ", crrp=" + crrp +
-                ", htc=" + htc +
-                ", old=" + old +
-                ", mel=" + mel +
-                ", mrrv=" + mrrv +
-                ", mrmbn=" + mrmbn +
-                ", mr=" + mr +
-                ", mrbn=" + mrbn +
-                ", damageCount=" + damageCount +
-                ", deathCount=" + deathCount +
-                ", killCount=" + killCount +
-                ", experienceCount=" + experienceCount +
-                ", hitCount=" + hitCount +
-                ", shotCount=" + shotCount +
-                ", winCount=" + winCount +
-                ", gamesCount=" + gamesCount +
-                '}';
     }
 
     public int getWinCount() {
@@ -136,29 +125,36 @@ public class Statistics {
         return mrmbn;
     }
 
-    @XmlAttribute
-    private int experienceCount;
-
-
-    @XmlAttribute
-    private int hitCount;
-
-    @XmlAttribute
-    private int shotCount;
-
-    @XmlAttribute
-    private int winCount;
-
-    @XmlAttribute
-    private int gamesCount;
-
-
     public int getRunDistance() {
         return runDistance;
     }
 
     public int getTankId() {
         return tankId;
+    }
+
+    @Override
+    public String toString() {
+        return "Statistics{" +
+                "tankId=" + tankId +
+                ", runDistance=" + runDistance +
+                ", crrp=" + crrp +
+                ", htc=" + htc +
+                ", old=" + old +
+                ", mel=" + mel +
+                ", mrrv=" + mrrv +
+                ", mrmbn=" + mrmbn +
+                ", mr=" + mr +
+                ", mrbn=" + mrbn +
+                ", damageCount=" + damageCount +
+                ", deathCount=" + deathCount +
+                ", killCount=" + killCount +
+                ", experienceCount=" + experienceCount +
+                ", hitCount=" + hitCount +
+                ", shotCount=" + shotCount +
+                ", winCount=" + winCount +
+                ", gamesCount=" + gamesCount +
+                '}';
     }
 
 }

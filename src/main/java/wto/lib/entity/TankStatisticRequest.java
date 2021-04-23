@@ -17,8 +17,8 @@ public final class TankStatisticRequest {
                 "clientId=" + clientId +
                 '}';
     }
-    public static final class Builder{
 
+    public static final class Builder{
 
         TankStatisticRequest tankStatisticRequest = new TankStatisticRequest();
 
@@ -31,8 +31,6 @@ public final class TankStatisticRequest {
             return tankStatisticRequest;
         }
 
-
     }
-
 
 }

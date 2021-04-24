@@ -10,6 +10,13 @@ public final class Config {
     public final static String tankStatisticPath = "service/tank-statistic";
     public final static String clientProfilePath = "service/client-profile";
 
+    // fleet
+
+    public final static String fleetAction = "service/fleet-action";
+    public final static String asyncFleet = "servlet/asyncfleet";
+    public final static String createFleet = "service/create-fleet";
+
+
 
 
 }

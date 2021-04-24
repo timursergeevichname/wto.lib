@@ -1,0 +1,5 @@
+POST http://wildtanksonline.com/servlet/asyncfleet
+Content-Type: application/xml
+Cookie: JSESSIONID=FEF482D788B04F43E7E48013529FF05E
+
+<async-fleet-request><forcedLoad>false</forcedLoad></async-fleet-request>

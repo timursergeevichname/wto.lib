@@ -1,6 +1,7 @@
 package wto.lib;
 
 import wto.lib.entity.*;
+import wto.lib.service.FleetService;
 
 public class App {
 
@@ -58,6 +59,25 @@ public class App {
                 ClientProfileResponse.Statistic statistic = clientProfileResponse.getStatistic();
                 System.out.println(statistic);
 
+
+                System.out.println("##########FLEET #########################");
+
+                FleetService fleetService = wtOlib.getFleetService();
+
+                System.out.println("create fleet");
+                System.out.println(fleetService.createFleet());
+
+                System.out.println("info fleet");
+                AsyncFleetResponse asyncFleetResponse = fleetService.infoFleet();
+
+                if(asyncFleetResponse.getStatus().equals(Status.OK)){
+
+                    //
+                    System.out.println(asyncFleetResponse.getFleet());
+
+                }
+
+
             }
 
         } catch (AuthServiceException e) {
@@ -65,6 +85,10 @@ public class App {
         } catch (TankStatisticsException e) {
             e.printStackTrace();
         } catch (ClientProfileException e) {
+            e.printStackTrace();
+        } catch (CreateFleetException e) {
+            e.printStackTrace();
+        } catch (AsyncFleetException e) {
             e.printStackTrace();
         }
 

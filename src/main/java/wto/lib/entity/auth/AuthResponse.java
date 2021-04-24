@@ -1,4 +1,6 @@
-package wto.lib.entity;
+package wto.lib.entity.auth;
+
+import wto.lib.entity.Status;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;

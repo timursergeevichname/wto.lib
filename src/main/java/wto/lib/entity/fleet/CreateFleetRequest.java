@@ -1,4 +1,4 @@
-package wto.lib.entity;
+package wto.lib.entity.fleet;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

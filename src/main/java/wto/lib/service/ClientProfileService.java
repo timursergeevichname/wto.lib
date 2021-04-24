@@ -2,7 +2,9 @@ package wto.lib.service;
 
 import okhttp3.*;
 import wto.lib.Config;
-import wto.lib.entity.*;
+import wto.lib.entity.profile.ClientProfileException;
+import wto.lib.entity.profile.ClientProfileRequest;
+import wto.lib.entity.profile.ClientProfileResponse;
 import wto.lib.parser.JAXBParser;
 
 import java.io.StringReader;
@@ -19,7 +21,7 @@ public class ClientProfileService extends Servise{
         responseJAXBParser = new JAXBParser<>();
     }
 
-    public ClientProfileResponse getProfile(ClientProfileRequest clientProfileRequest) throws ClientProfileException{
+    public ClientProfileResponse getProfile(ClientProfileRequest clientProfileRequest) throws ClientProfileException {
 
         StringWriter stringWriter = new StringWriter();
 

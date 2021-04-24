@@ -1,4 +1,4 @@
-package wto.lib.entity;
+package wto.lib.entity.statistic;
 
 public class TankStatisticsException extends Exception{
 

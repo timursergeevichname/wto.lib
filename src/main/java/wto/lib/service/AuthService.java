@@ -2,9 +2,9 @@ package wto.lib.service;
 
 import okhttp3.*;
 import wto.lib.Config;
-import wto.lib.entity.AuthRequest;
-import wto.lib.entity.AuthResponse;
-import wto.lib.entity.AuthServiceException;
+import wto.lib.entity.auth.AuthRequest;
+import wto.lib.entity.auth.AuthResponse;
+import wto.lib.entity.auth.AuthServiceException;
 import wto.lib.parser.JAXBParser;
 
 import java.io.StringReader;

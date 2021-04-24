@@ -1,6 +1,20 @@
 package wto.lib;
 
 import wto.lib.entity.*;
+import wto.lib.entity.auth.AuthRequest;
+import wto.lib.entity.auth.AuthResponse;
+import wto.lib.entity.auth.AuthServiceException;
+import wto.lib.entity.auth.AythType;
+import wto.lib.entity.fleet.AsyncFleetException;
+import wto.lib.entity.fleet.AsyncFleetResponse;
+import wto.lib.entity.fleet.CreateFleetException;
+import wto.lib.entity.profile.ClientProfileException;
+import wto.lib.entity.profile.ClientProfileRequest;
+import wto.lib.entity.profile.ClientProfileResponse;
+import wto.lib.entity.statistic.Statistics;
+import wto.lib.entity.statistic.TankStatisticRequest;
+import wto.lib.entity.statistic.TankStatisticResponse;
+import wto.lib.entity.statistic.TankStatisticsException;
 import wto.lib.service.FleetService;
 
 public class App {

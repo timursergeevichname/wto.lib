@@ -1,4 +1,4 @@
-package wto.lib.entity;
+package wto.lib.entity.auth;
 
 public class AuthServiceException extends Exception{
 

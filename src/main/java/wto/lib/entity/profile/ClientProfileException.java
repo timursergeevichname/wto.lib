@@ -1,4 +1,4 @@
-package wto.lib.entity;
+package wto.lib.entity.profile;
 
 public class ClientProfileException extends Exception{
 

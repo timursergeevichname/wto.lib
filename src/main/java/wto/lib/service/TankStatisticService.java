@@ -2,9 +2,9 @@ package wto.lib.service;
 
 import okhttp3.*;
 import wto.lib.Config;
-import wto.lib.entity.TankStatisticRequest;
-import wto.lib.entity.TankStatisticResponse;
-import wto.lib.entity.TankStatisticsException;
+import wto.lib.entity.statistic.TankStatisticRequest;
+import wto.lib.entity.statistic.TankStatisticResponse;
+import wto.lib.entity.statistic.TankStatisticsException;
 import wto.lib.parser.JAXBParser;
 
 import java.io.StringReader;

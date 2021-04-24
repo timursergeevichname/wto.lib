@@ -1,4 +1,4 @@
-package wto.lib.entity;
+package wto.lib.entity.fleet;
 
 public class CreateFleetException extends Exception{
 

@@ -2,7 +2,7 @@ package wto.lib.service;
 
 import okhttp3.*;
 import wto.lib.Config;
-import wto.lib.entity.*;
+import wto.lib.entity.fleet.*;
 import wto.lib.parser.JAXBParser;
 
 import java.io.StringReader;
@@ -31,7 +31,7 @@ public class FleetService extends Servise{
     }
 
 
-    public AsyncFleetResponse infoFleet() throws AsyncFleetException{
+    public AsyncFleetResponse infoFleet() throws AsyncFleetException {
 
         StringWriter stringWriter = new StringWriter();
 

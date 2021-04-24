@@ -1,4 +1,4 @@
-package wto.lib.entity;
+package wto.lib.entity.statistic;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;

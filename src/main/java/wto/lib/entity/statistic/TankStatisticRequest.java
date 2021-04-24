@@ -9,7 +9,8 @@ public final class TankStatisticRequest {
     @XmlAttribute
     private int clientId;
 
-    private TankStatisticRequest(){}
+    private TankStatisticRequest() {
+    }
 
     @Override
     public String toString() {
@@ -18,16 +19,16 @@ public final class TankStatisticRequest {
                 '}';
     }
 
-    public static final class Builder{
+    public static final class Builder {
 
         TankStatisticRequest tankStatisticRequest = new TankStatisticRequest();
 
-        public Builder setClientId(int clientId){
+        public Builder setClientId(int clientId) {
             tankStatisticRequest.clientId = clientId;
             return this;
         }
 
-        public TankStatisticRequest build(){
+        public TankStatisticRequest build() {
             return tankStatisticRequest;
         }
 

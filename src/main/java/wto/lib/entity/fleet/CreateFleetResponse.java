@@ -21,7 +21,7 @@ public class CreateFleetResponse {
                 '}';
     }
 
-    public enum Status{
+    public enum Status {
 
         OK
 

@@ -7,7 +7,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.Reader;
 import java.io.Writer;
 
-public class JAXBParser<T> implements Parser<T>{
+public class JAXBParser<T> implements Parser<T> {
     @Override
     public T getObject(Reader in, Class<T> c) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(c);
@@ -19,6 +19,6 @@ public class JAXBParser<T> implements Parser<T>{
     public void saveObject(Writer out, T object) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(object.getClass());
         Marshaller marshaller = context.createMarshaller();
-        marshaller.marshal(object,out);
+        marshaller.marshal(object, out);
     }
 }

@@ -1,22 +1,18 @@
 package wto.lib.service;
 
-import okhttp3.*;
-import wto.lib.Config;
+import okhttp3.OkHttpClient;
 import wto.lib.entity.auth.AuthRequest;
 import wto.lib.entity.auth.AuthResponse;
 import wto.lib.entity.auth.AuthServiceException;
 import wto.lib.parser.JAXBParser;
 
-import java.io.StringReader;
-import java.io.StringWriter;
-
-public class AuthService extends Servise{
+public class AuthService extends Servise {
 
     private final JAXBParser<AuthRequest> requestJAXBParser;
     private final JAXBParser<AuthResponse> responseJAXBParser;
 
 
-    public AuthService(OkHttpClient okHttpClient){
+    public AuthService(OkHttpClient okHttpClient) {
         super(okHttpClient);
         requestJAXBParser = new JAXBParser<>();
         responseJAXBParser = new JAXBParser<>();
@@ -24,23 +20,14 @@ public class AuthService extends Servise{
 
     public AuthResponse auth(AuthRequest authRequest) throws AuthServiceException {
 
-        StringWriter stringWriter = new StringWriter();
         try {
-            requestJAXBParser.saveObject(stringWriter, authRequest);
-            Request request = new Request.Builder()
-                    .url(Config.host + Config.authPath)
-                    .header("Content-Type", "text/xml; charset=utf-8")
-                    .post(RequestBody.create(MediaType.parse("text/xml"), stringWriter.toString()))
-                    .build();
 
-            Response response = httpClient.newCall(request).execute();
-            AuthResponse authResponse =  responseJAXBParser.getObject(new StringReader(response.body().string()), AuthResponse.class);
+            AuthResponse authResponse = query(requestJAXBParser, responseJAXBParser, authRequest, AuthResponse.class);
             return authResponse;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new AuthServiceException(e);
         }
-
 
 
     }

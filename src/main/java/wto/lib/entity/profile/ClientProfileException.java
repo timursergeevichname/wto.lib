@@ -1,8 +1,8 @@
 package wto.lib.entity.profile;
 
-public class ClientProfileException extends Exception{
+public class ClientProfileException extends Exception {
 
-    public ClientProfileException(Exception e){
+    public ClientProfileException(Exception e) {
 
         super(e);
 

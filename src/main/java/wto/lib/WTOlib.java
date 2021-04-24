@@ -18,7 +18,7 @@ public class WTOlib {
     private final ClientProfileService clientProfileService;
     private final FleetService fleetService;
 
-    public WTOlib(){
+    public WTOlib() {
 
         CookieManager cookieManager = new CookieManager();
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);

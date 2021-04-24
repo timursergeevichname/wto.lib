@@ -1,6 +1,5 @@
 package wto.lib.entity.fleet;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -10,13 +9,13 @@ public class AsyncFleetRequest {
     @XmlElement
     private boolean forcedLoad = false;
 
-    public AsyncFleetRequest(boolean forcedLoad){
+    public AsyncFleetRequest(boolean forcedLoad) {
 
         this.forcedLoad = forcedLoad;
 
     }
 
-    public AsyncFleetRequest(){
+    public AsyncFleetRequest() {
 
     }
 

@@ -17,6 +17,4 @@ public final class Config {
     public final static String createFleet = "service/create-fleet";
 
 
-
-
 }

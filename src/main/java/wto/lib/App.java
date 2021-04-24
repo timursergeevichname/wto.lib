@@ -1,6 +1,6 @@
 package wto.lib;
 
-import wto.lib.entity.*;
+import wto.lib.entity.Status;
 import wto.lib.entity.auth.AuthRequest;
 import wto.lib.entity.auth.AuthResponse;
 import wto.lib.entity.auth.AuthServiceException;
@@ -19,9 +19,9 @@ import wto.lib.service.FleetService;
 
 public class App {
 
-    private WTOlib wtOlib;
-    private String login;
-    private String password;
+    private final WTOlib wtOlib;
+    private final String login;
+    private final String password;
 
     public App(WTOlib wtOlib, String login, String password) {
 
@@ -32,15 +32,15 @@ public class App {
 
     public static void main(String[] args) {
 
-        if(args.length < 2){
+        if (args.length < 2) {
             new IllegalArgumentException("The first parameter must be login and the second password");
         }
 
-        new App(new WTOlib(),args[0],args[1]).start();
+        new App(new WTOlib(), args[0], args[1]).start();
 
     }
 
-    public void start(){
+    public void start() {
 
         AuthRequest authRequest = new AuthRequest.Builder()
                 .setLogin(login)
@@ -52,7 +52,7 @@ public class App {
         try {
             AuthResponse auth = wtOlib.getAuthService().auth(authRequest);
 
-            if(auth.getStatus().equals(Status.SUCCESS)){
+            if (auth.getStatus().equals(Status.SUCCESS)) {
 
                 TankStatisticRequest tankStatisticRequest = new TankStatisticRequest.Builder()
                         .setClientId(auth.getUserId())
@@ -84,7 +84,7 @@ public class App {
                 System.out.println("info fleet");
                 AsyncFleetResponse asyncFleetResponse = fleetService.infoFleet();
 
-                if(asyncFleetResponse.getStatus().equals(Status.OK)){
+                if (asyncFleetResponse.getStatus().equals(Status.OK)) {
 
                     //
                     System.out.println(asyncFleetResponse.getFleet());

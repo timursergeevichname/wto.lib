@@ -25,7 +25,7 @@ public class Statistics {
     private float mel;
 
     @XmlAttribute
-    private  float mrrv;
+    private float mrrv;
 
     @XmlAttribute
     private int mrmbn;

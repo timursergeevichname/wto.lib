@@ -9,7 +9,8 @@ public class ClientProfileRequest {
     @XmlAttribute(name = "user_id")
     private int userId;
 
-    private ClientProfileRequest(){}
+    private ClientProfileRequest() {
+    }
 
     @Override
     public String toString() {
@@ -18,21 +19,20 @@ public class ClientProfileRequest {
                 '}';
     }
 
-    public static final class Builder{
+    public static final class Builder {
 
         ClientProfileRequest clientProfileRequest = new ClientProfileRequest();
 
-        public Builder setUserId(int userId){
+        public Builder setUserId(int userId) {
             clientProfileRequest.userId = userId;
             return this;
         }
 
-        public ClientProfileRequest build(){
+        public ClientProfileRequest build() {
             return clientProfileRequest;
         }
 
     }
-
 
 
 }

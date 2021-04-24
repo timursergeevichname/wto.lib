@@ -1,6 +1,7 @@
 package wto.lib.service;
 
 import okhttp3.OkHttpClient;
+import wto.lib.Config;
 import wto.lib.entity.statistic.TankStatisticRequest;
 import wto.lib.entity.statistic.TankStatisticResponse;
 import wto.lib.entity.statistic.TankStatisticsException;
@@ -22,7 +23,7 @@ public class TankStatisticService extends Servise {
 
         try {
 
-            TankStatisticResponse tankStatisticResponse = query(requestJAXBParser, responseJAXBParser, tankStatisticRequest, TankStatisticResponse.class);
+            TankStatisticResponse tankStatisticResponse = query(requestJAXBParser, responseJAXBParser, tankStatisticRequest, TankStatisticResponse.class, Config.tankStatisticPath);
             return tankStatisticResponse;
 
         } catch (Exception e) {

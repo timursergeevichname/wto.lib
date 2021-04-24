@@ -42,6 +42,11 @@ public class App {
 
     public void start() {
 
+        /**
+         *  AuthRequest обект авторизации
+         *  логин пароль тип и версия обязательные параметры.
+         *
+         */
         AuthRequest authRequest = new AuthRequest.Builder()
                 .setLogin(login)
                 .setPassword(password)
@@ -50,43 +55,83 @@ public class App {
                 .build();
 
         try {
+
+            /**
+             *  Для авторизации. Обязательно в первую очередь!!!
+             *  Все последующие запросы будут идти от аторизованого игока.
+             */
             AuthResponse auth = wtOlib.getAuthService().auth(authRequest);
 
             if (auth.getStatus().equals(Status.SUCCESS)) {
 
+                System.out.println(auth);
+
+                /**
+                 *  Создаем запрос с текущим авторизованным игроком
+                 */
                 TankStatisticRequest tankStatisticRequest = new TankStatisticRequest.Builder()
                         .setClientId(auth.getUserId())
                         .build();
 
+
+                /**
+                 *  Отправляем запрос и получаем ответ в виде обьекта TankStatisticResponse
+                 *  содержащий в себе список Statistics по конкретнуму танку.
+                 */
                 TankStatisticResponse tankStatisticResponse = wtOlib.getTankStatisticService().getStatistic(tankStatisticRequest);
 
+                /**
+                 * Выводим Statistics
+                 */
                 for (Statistics statistic : tankStatisticResponse.getStatistics()) {
                     System.out.println(statistic);
                 }
 
+                /**
+                 *  Создаем запрос с текущим авторизованным игроком
+                 */
                 ClientProfileRequest clientProfileRequest = new ClientProfileRequest.Builder()
                         .setUserId(auth.getUserId())
                         .build();
 
+                /**
+                 *  Отправляем запрос и получаем ответ в виде обьекта ClientProfileResponse
+                 *  содержащий в себе список Statistics по конкретнуму игроку содержащий флаги.
+                 */
                 ClientProfileResponse clientProfileResponse = wtOlib.getClientProfileService().getProfile(clientProfileRequest);
                 System.out.println(clientProfileResponse);
                 ClientProfileResponse.Statistic statistic = clientProfileResponse.getStatistic();
                 System.out.println(statistic);
 
+                /**
+                 *  Работа с Взводом
+                 */
+                System.out.println("########## FLEET #########################");
 
-                System.out.println("##########FLEET #########################");
 
                 FleetService fleetService = wtOlib.getFleetService();
 
                 System.out.println("create fleet");
+
+                /**
+                 *  Создаем взвод.
+                 */
                 System.out.println(fleetService.createFleet());
 
                 System.out.println("info fleet");
+
+                /**
+                 *  Информация о взводе
+                 */
                 AsyncFleetResponse asyncFleetResponse = fleetService.infoFleet();
 
                 if (asyncFleetResponse.getStatus().equals(Status.OK)) {
 
-                    //
+                    /**
+                     *
+                     *  Если взвод существует вывести обьект Fleet содержащий информацию о взводе
+                     *
+                     */
                     System.out.println(asyncFleetResponse.getFleet());
 
                 }
@@ -96,13 +141,13 @@ public class App {
 
         } catch (AuthServiceException e) {
             e.printStackTrace();
-        } catch (TankStatisticsException e) {
-            e.printStackTrace();
         } catch (ClientProfileException e) {
             e.printStackTrace();
         } catch (CreateFleetException e) {
             e.printStackTrace();
         } catch (AsyncFleetException e) {
+            e.printStackTrace();
+        } catch (TankStatisticsException e) {
             e.printStackTrace();
         }
 

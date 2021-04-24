@@ -1,6 +1,7 @@
 package wto.lib.service;
 
 import okhttp3.OkHttpClient;
+import wto.lib.Config;
 import wto.lib.entity.profile.ClientProfileException;
 import wto.lib.entity.profile.ClientProfileRequest;
 import wto.lib.entity.profile.ClientProfileResponse;
@@ -21,7 +22,7 @@ public class ClientProfileService extends Servise {
 
         try {
 
-            ClientProfileResponse clientProfileResponse = query(requestJAXBParser, responseJAXBParser, clientProfileRequest, ClientProfileResponse.class);
+            ClientProfileResponse clientProfileResponse = query(requestJAXBParser, responseJAXBParser, clientProfileRequest, ClientProfileResponse.class, Config.clientProfilePath);
             return clientProfileResponse;
 
 

@@ -1,6 +1,7 @@
 package wto.lib.service;
 
 import okhttp3.OkHttpClient;
+import wto.lib.Config;
 import wto.lib.entity.auth.AuthRequest;
 import wto.lib.entity.auth.AuthResponse;
 import wto.lib.entity.auth.AuthServiceException;
@@ -22,7 +23,7 @@ public class AuthService extends Servise {
 
         try {
 
-            AuthResponse authResponse = query(requestJAXBParser, responseJAXBParser, authRequest, AuthResponse.class);
+            AuthResponse authResponse = query(requestJAXBParser, responseJAXBParser, authRequest, AuthResponse.class, Config.authPath);
             return authResponse;
 
         } catch (Exception e) {

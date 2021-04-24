@@ -1,6 +1,7 @@
 package wto.lib.service;
 
 import okhttp3.OkHttpClient;
+import wto.lib.Config;
 import wto.lib.entity.fleet.*;
 import wto.lib.parser.JAXBParser;
 
@@ -29,7 +30,7 @@ public class FleetService extends Servise {
 
         try {
 
-            AsyncFleetResponse asyncFleetResponse = query(asyncFleetRequestJAXBParser, asyncFleetResponseJAXBParser, new AsyncFleetRequest(), AsyncFleetResponse.class);
+            AsyncFleetResponse asyncFleetResponse = query(asyncFleetRequestJAXBParser, asyncFleetResponseJAXBParser, new AsyncFleetRequest(), AsyncFleetResponse.class, Config.asyncFleet);
             return asyncFleetResponse;
 
 
@@ -45,7 +46,7 @@ public class FleetService extends Servise {
 
         try {
 
-            CreateFleetResponse createFleetResponse = query(createFleetRequestJAXBParser, createFleetResponseJAXBParser, new CreateFleetRequest(), CreateFleetResponse.class);
+            CreateFleetResponse createFleetResponse = query(createFleetRequestJAXBParser, createFleetResponseJAXBParser, new CreateFleetRequest(), CreateFleetResponse.class, Config.createFleet);
 
             if (createFleetResponse.getStatus().equals(CreateFleetResponse.Status.OK)) {
 

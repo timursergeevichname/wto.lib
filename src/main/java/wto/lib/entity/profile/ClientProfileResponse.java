@@ -28,11 +28,18 @@ public class ClientProfileResponse {
     @XmlAttribute
     private int level;
 
+    @XmlAttribute
+    private String login;
+
     @XmlElement
     private Statistic statistic;
 
     public Statistic getStatistic() {
         return statistic;
+    }
+
+    public String getLogin() {
+        return login;
     }
 
     public boolean isOnline() {
@@ -74,6 +81,7 @@ public class ClientProfileResponse {
                 ", isModerator=" + isModerator +
                 ", isFriends=" + isFriends +
                 ", level=" + level +
+                ", login='" + login + '\'' +
                 ", statistic=" + statistic +
                 '}';
     }

@@ -2,7 +2,7 @@ package wto.lib.service;
 
 import okhttp3.*;
 import wto.lib.Config;
-import wto.lib.parser.JAXBParser;
+import wto.lib.parser.Parser;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -17,7 +17,7 @@ public abstract class Servise {
 
     }
 
-    protected <Req, Resp> Resp query(JAXBParser<Req> requestJAXBParser, JAXBParser<Resp> responseJAXBParser, Req req, Class<Resp> clazz, String path) throws Exception {
+    protected <Req, Resp> Resp query(Parser<Req> requestJAXBParser, Parser<Resp> responseJAXBParser, Req req, Class<Resp> clazz, String path) throws Exception {
 
         StringWriter stringWriter = new StringWriter();
         requestJAXBParser.saveObject(stringWriter, req);
@@ -30,8 +30,7 @@ public abstract class Servise {
 
 
         Response response = httpClient.newCall(request).execute();
-        Resp resp = responseJAXBParser.getObject(new StringReader(response.body().string()), clazz);
-        return resp;
+        return responseJAXBParser.getObject(new StringReader(response.body().string()), clazz);
 
 
     }

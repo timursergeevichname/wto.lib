@@ -11,11 +11,15 @@ import wto.lib.entity.fleet.CreateFleetException;
 import wto.lib.entity.profile.ClientProfileException;
 import wto.lib.entity.profile.ClientProfileRequest;
 import wto.lib.entity.profile.ClientProfileResponse;
+import wto.lib.entity.rating.RatingRequestException;
+import wto.lib.entity.rating.RatingResponse;
+import wto.lib.entity.rating.Ratings;
 import wto.lib.entity.statistic.Statistics;
 import wto.lib.entity.statistic.TankStatisticRequest;
 import wto.lib.entity.statistic.TankStatisticResponse;
 import wto.lib.entity.statistic.TankStatisticsException;
 import wto.lib.service.FleetService;
+import wto.lib.service.RatingService;
 import wto.lib.service.Servise;
 
 public class App {
@@ -104,6 +108,20 @@ public class App {
                 ClientProfileResponse.Statistic statistic = clientProfileResponse.getStatistic();
                 System.out.println(statistic);
 
+                RatingService ratingService = wtOlib.getRatingService();
+
+                for (int i = 0; i < 100; i++) {
+
+                    RatingResponse ratingResponce = ratingService.getRatingResponce(10*i);
+
+                    for (Ratings rating : ratingResponce.getRatings()) {
+                        System.out.println(rating);
+                    }
+
+                }
+
+
+
                 /**
                  *  Работа с Взводом
                  */
@@ -149,6 +167,8 @@ public class App {
         } catch (AsyncFleetException e) {
             e.printStackTrace();
         } catch (TankStatisticsException e) {
+            e.printStackTrace();
+        } catch (RatingRequestException e) {
             e.printStackTrace();
         }
 

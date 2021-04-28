@@ -20,5 +20,9 @@ public final class Config {
     public final static String asyncFleet = "servlet/asyncfleet";
     public final static String createFleet = "service/create-fleet";
 
+    // Ratings
+
+    public final static String ratingService = "service/rating-service";
+
 
 }

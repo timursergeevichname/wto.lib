@@ -17,20 +17,20 @@ public abstract class Servise {
 
     }
 
-    protected <Req, Resp> Resp query(Parser<Req> requestJAXBParser, Parser<Resp> responseJAXBParser, Req req, Class<Resp> clazz, String path) throws Exception {
+    protected <Req, Resp> Resp query(Parser<Req> requestParser, Parser<Resp> responseParser, Req req, Class<Resp> clazz, String path) throws Exception {
 
         StringWriter stringWriter = new StringWriter();
-        requestJAXBParser.saveObject(stringWriter, req);
+        requestParser.saveObject(stringWriter, req);
         Request request = new Request.Builder()
                 .url(Config.host + path)
-                .header("Content-Type", "text/xml; charset=utf-8")
-                .post(RequestBody.create(MediaType.parse("text/xml"), stringWriter.toString()))
+                // .header("Content-Type", "text/xml; charset=utf-8")
+                .post(RequestBody.create(MediaType.parse(requestParser.getType().toString()), stringWriter.toString()))
                 .build();
 
 
 
         Response response = httpClient.newCall(request).execute();
-        return responseJAXBParser.getObject(new StringReader(response.body().string()), clazz);
+        return responseParser.getObject(new StringReader(response.body().string()), clazz);
 
 
     }

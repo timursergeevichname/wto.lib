@@ -9,6 +9,11 @@ import java.io.Writer;
 
 public class JAXBParser<T> implements Parser<T> {
     @Override
+    public TypeParser getType() {
+        return TypeParser.XML;
+    }
+
+    @Override
     public T getObject(Reader in, Class<T> c) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(c);
         Unmarshaller unmarshaller = context.createUnmarshaller();
